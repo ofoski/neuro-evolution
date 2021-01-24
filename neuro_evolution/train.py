@@ -27,11 +27,11 @@ def compile_model(network, input_shape):
         model.add(Dropout(network.get('dropout', 1)))
 
     model.add(Dense(
-        network.get('last_layer_neurons', 1),
+        network.get('last_layer_neurons', 4),
         activation=network.get('last_layer_activations', 'sigmoid'),
     ))
 
-    model.compile(loss=network.get('losses', 'binary_crossentropy'), optimizer=optimizer,
+    model.compile(loss=network.get('losses', 'mean_squared_error'), optimizer=optimizer,
                   metrics=[network.get('mertics', 'accuracy')])
 
     return model
