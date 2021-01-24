@@ -28,7 +28,7 @@ def compile_model(network, input_shape):
 
     model.add(Dense(
         network.get('last_layer_neurons', 4),
-        activation=network.get('last_layer_activations', 'sigmoid'),
+        activation=network.get('last_layer_activations', 'linear'),
     ))
 
     model.compile(loss=network.get('losses', 'mean_squared_error'), optimizer=optimizer,
