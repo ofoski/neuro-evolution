@@ -27,7 +27,7 @@ def compile_model(network, input_shape):
         model.add(Dropout(network.get('dropout', 1)))
 
     model.add(Dense(
-        network.get('last_layer_neurons', y_train.shape[1),
+        network.get('last_layer_neurons', y_train.shape[1]),
         activation=network.get('last_layer_activations', 'linear'),
     ))
 
